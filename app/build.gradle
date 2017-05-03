@@ -25,6 +25,9 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    //    compile 'cn.bmob.android:bmob-sdk:3.5.0'
+//    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
+//    compile 'cn.bmob.android:http-legacy:1.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-vector-drawable:25.3.1'
@@ -32,8 +35,5 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.5.2'
     compile 'com.alibaba:fastjson:1.2.31'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-//    compile 'cn.bmob.android:bmob-sdk:3.5.0'
-//    compile 'cn.bmob.android:bmob-im:2.0.5@aar'
-//    compile 'cn.bmob.android:http-legacy:1.0'
     testCompile 'junit:junit:4.12'
 }
