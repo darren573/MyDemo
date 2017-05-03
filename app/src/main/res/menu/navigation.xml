@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/ic_news"
+        android:title="新闻" />
+
+    <item
+        android:id="@+id/navigation_joke"
+        android:icon="@drawable/ic_joke"
+        android:title="笑话" />
+
+    <item
+        android:id="@+id/navigation_picture"
+        android:icon="@drawable/ic_picture"
+        android:title="图片" />
+    <item
+        android:id="@+id/navigation_person"
+        android:icon="@drawable/ic_person"
+        android:title="我" />
+
+</menu>
