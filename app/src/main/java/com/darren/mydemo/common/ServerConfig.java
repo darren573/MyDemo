@@ -5,5 +5,6 @@ package com.darren.mydemo.common;
  */
 
 public class ServerConfig {
-    public static final String BASE_URL="http://v.juhe.cn/toutiao/index";
+    public static final String NEWS_URL="https://v.juhe.cn/toutiao/index";
+    public static final String JOKE_URL="http://japi.juhe.cn/joke/content/list.from";
 }

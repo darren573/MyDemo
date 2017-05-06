@@ -7,6 +7,7 @@ import com.zhy.http.okhttp.log.LoggerInterceptor;
 
 import java.util.concurrent.TimeUnit;
 
+import cn.sharesdk.framework.ShareSDK;
 import okhttp3.OkHttpClient;
 
 /**
@@ -17,6 +18,15 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initOkHttp();
+        initShareSDK();
+    }
+
+    private void initShareSDK() {
+        ShareSDK.initSDK(this);
+    }
+
+    private void initOkHttp() {
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new LoggerInterceptor("Health"))
                 .connectTimeout(10000L, TimeUnit.MILLISECONDS)

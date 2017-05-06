@@ -7,18 +7,42 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.darren.mydemo.R;
+import com.darren.mydemo.activity.LoginActivity;
+import com.darren.mydemo.activity.RegisterActivity;
 
 /**
  * Created by lenovo on 2017/5/2.
  */
 
-public class PersonFragment extends Fragment {
+public class PersonFragment extends Fragment implements View.OnClickListener {
+    private Button btn_register, btn_to_login;
+    private Intent intent;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.person_item,container,false);
+        View view = inflater.inflate(R.layout.person_item, container, false);
+        btn_to_login = (Button) view.findViewById(R.id.btn_to_login);
+        btn_register = (Button) view.findViewById(R.id.btn_register);
+        btn_register.setOnClickListener(this);
+        btn_to_login.setOnClickListener(this);
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_to_login:
+                intent=new Intent(v.getContext(), LoginActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_register:
+                intent=new Intent(v.getContext(), RegisterActivity.class);
+                startActivity(intent);
+                break;
+        }
     }
 }

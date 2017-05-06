@@ -1,5 +1,6 @@
 package com.darren.mydemo.adapter;
 
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,11 +21,9 @@ import java.util.List;
 public class NewsAdapter extends BaseAdapter {
     private List<News> data;
     private ViewHolder holder;
-
     public NewsAdapter(List<News> data) {
         this.data = data;
     }
-
     @Override
     public int getCount() {
         return data.size();
@@ -51,7 +50,7 @@ public class NewsAdapter extends BaseAdapter {
         }
         //加载缓存网络图片
         Glide.with(viewGroup.getContext())
-                .load(data.get(position).getThumbnail_pic_s03())
+                .load(data.get(position).getThumbnail_pic_s())
                 .error(R.mipmap.error)
                 .into(holder.iv_image);
 
@@ -67,5 +66,16 @@ public class NewsAdapter extends BaseAdapter {
             iv_image = (ImageView) view.findViewById(R.id.iv_image);
             tv_title = (TextView) view.findViewById(R.id.tv_title);
         }
+    }
+
+    public void setNewData(List<News> newData) {
+        data.clear();
+        data.addAll(newData);
+        notifyDataSetChanged();
+    }
+
+    public void loadMoreData(List<News> newData) {
+        data.addAll(newData);
+        notifyDataSetChanged();
     }
 }

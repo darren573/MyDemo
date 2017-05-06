@@ -3,6 +3,7 @@
 buildscript {
     repositories {
         jcenter()
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.0'
@@ -17,6 +18,8 @@ allprojects {
         jcenter()
         //Bmob的maven仓库地址--必填
         maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+        //自定义控件
+        maven { url "https://jitpack.io" }
     }
 }
 
