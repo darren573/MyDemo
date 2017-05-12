@@ -11,8 +11,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.darren.mydemo.R;
 import com.darren.mydemo.adapter.JokeAdapter;
 import com.darren.mydemo.bean.ResultJoke;
@@ -93,7 +91,7 @@ public class JokeFragment extends Fragment {
                 .addParams("page", String.valueOf(page))
                 .addParams("pagesize", Constant.PAGE_SIZE)
                 .addParams("time", TimeUtils.getTime())
-                .addParams("key", Common.API_JOKE_KEY)
+                .addParams("key",Common.API_JOKE_KEY)
                 .build()
                 .execute(new StringCallback() {
                     @Override

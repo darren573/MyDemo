@@ -6,4 +6,7 @@ package com.darren.mydemo.common;
 
 public class Constant {
     public static final String PAGE_SIZE="15";
+    public static final String NUM="10";
+    public static final String pagesize="1";
+    public static final String showapi_appid="37528";
 }

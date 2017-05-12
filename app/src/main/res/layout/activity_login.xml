@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/back"
+    android:background="@mipmap/background"
     tools:context="com.darren.mydemo.activity.LoginActivity">
 
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/riv_view"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="10dp"
+        android:src="@mipmap/head_portrait"
+        app:riv_border_color="#f2f1f1"
+        app:riv_border_width="2dp"
+        app:riv_oval="true" />
     <LinearLayout
+        android:layout_below="@id/riv_view"
         android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical">
+
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="40dp">
+            android:layout_height="match_parent">
 
             <EditText
                 android:id="@+id/et_name"
@@ -42,12 +56,24 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/linear1"
         android:orientation="horizontal">
-    <Button
-        android:id="@+id/btn_forget"
-        android:text="@string/forget_pwd"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btn_phone_register"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="手机注册" />
+
+        <Button
+            android:id="@+id/btn_forget"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="@string/forget_pwd" />
 
     </LinearLayout>
 
@@ -57,6 +83,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/linear2"
         android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn_login"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
@@ -64,5 +91,32 @@
             android:layout_height="wrap_content"
             android:onClick="onClick"
             android:text="@string/login" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/linear3"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageButton
+            android:onClick="onClick"
+            android:id="@+id/Ib_weibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43dp"
+            android:src="@drawable/ssdk_oks_classic_sinaweibo" />
+
+        <ImageButton
+            android:onClick="onClick"
+            android:id="@+id/Ib_QQ"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43dp"
+            android:src="@drawable/ssdk_oks_classic_qq" />
+        <ImageButton
+            android:onClick="onClick"
+            android:id="@+id/Ib_tencentweibo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="43dp"
+            android:src="@drawable/ssdk_oks_classic_tencentweibo" />
     </LinearLayout>
 </RelativeLayout>

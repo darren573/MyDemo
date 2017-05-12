@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.darren.mydemo.fragment.JokeFragment;
 import com.darren.mydemo.fragment.NewsFragment;
 import com.darren.mydemo.fragment.PersonFragment;
+import com.darren.mydemo.fragment.PicFragment;
 import com.darren.mydemo.fragment.PictureFragment;
 import com.darren.mydemo.utils.BottomNavigationViewEx;
 
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private NewsFragment newsFragment;
     private JokeFragment jokeFragment;
     private PictureFragment pictureFragment;
+    private PicFragment picFragment;
     private PersonFragment personFragment;
     private FragmentManager fm;
     private FragmentTransaction fragmentTransaction;
@@ -60,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
                     replace(jokeFragment);
                     return true;
                 case R.id.navigation_picture:
-                    pictureFragment = new PictureFragment();
-                    replace(pictureFragment);
+//                    pictureFragment = new PictureFragment();
+//                    replace(pictureFragment);
+                    picFragment=new PicFragment();
+                    replace(picFragment);
                     return true;
                 case R.id.navigation_person:
                     personFragment = new PersonFragment();
