@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<scale xmlns:android="http://schemas.android.com/apk/res/android">
+    android:interpolator="@android:anim/accelerate_interpolator"
+    android:fromXScale="0.2"
+    android:toXScale="1.5"
+    android:fromYScale="0.2"
+    android:toYScale="1.5"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:duration="500"/>
+    <alpha xmlns:android="http://schemas.android.com/apk/res/android"
+        android:fromAlpha="1.0" android:toAlpha="0.1" android:duration="3000"
+        />
+    <!--
+        fromXScale:表示沿着x轴缩放的起始比例
+        toXScale:表示沿着x轴缩放的结束比例
+
+        fromYScale:表示沿着y轴缩放的起始比例
+        toYScale:表示沿着y轴缩放的结束比例
+
+    图片中心点：
+        android:pivotX="50%"
+        android:pivotY="50%"
+
+  -->
+</scale>

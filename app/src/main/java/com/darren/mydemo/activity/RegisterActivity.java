@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.darren.mydemo.R;
 import com.darren.mydemo.bean.User;
 
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -81,8 +83,15 @@ public class RegisterActivity extends AppCompatActivity {
             public void done(User users, BmobException e) {
                 if (e == null) {
                     Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
-                    intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                    startActivity(intent);
+                   final Intent intent =new Intent(RegisterActivity.this,LoginActivity.class);
+                    Timer timer=new Timer();
+                    TimerTask task=new TimerTask() {
+                        @Override
+                        public void run() {
+                            startActivity(intent);
+                        }
+                    };
+                    timer.schedule(task,100*2);
                 } else {
                     Toast.makeText(RegisterActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
                     Log.e("TAG", "e");
