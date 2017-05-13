@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/back"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="@mipmap/app_background"
     tools:context="com.darren.mydemo.activity.RegisterActivity">
 
     <LinearLayout

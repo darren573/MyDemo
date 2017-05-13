@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/background"
+    android:background="@mipmap/app_background"
     tools:context="com.darren.mydemo.activity.LoginActivity">
 
     <com.makeramen.roundedimageview.RoundedImageView
@@ -13,7 +13,7 @@
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
         android:paddingTop="10dp"
-        android:src="@mipmap/head_portrait"
+        android:src="@drawable/head_portrait"
         app:riv_border_color="#f2f1f1"
         app:riv_border_width="2dp"
         app:riv_oval="true" />

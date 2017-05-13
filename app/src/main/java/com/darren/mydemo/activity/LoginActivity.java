@@ -62,6 +62,8 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
             case R.id.Ib_tencentweibo:
                 loginByTencentweibo();
                 break;
+            case R.id.btn_phone_register:
+                break;
         }
     }
 

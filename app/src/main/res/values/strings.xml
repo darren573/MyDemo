@@ -15,4 +15,8 @@
     <string name="put_pwd">请输入密码</string>
     <string name="put_emali">请您的邮箱</string>
     <string name="register">注册</string>
+    <string name="news">新闻</string>
+    <string name="jokes">笑话</string>
+    <string name="pictures">图片</string>
+    <string name="myself">我</string>
 </resources>
