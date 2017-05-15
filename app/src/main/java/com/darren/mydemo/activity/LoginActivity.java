@@ -1,7 +1,9 @@
 package com.darren.mydemo.activity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Looper;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -64,8 +66,22 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
                 loginByTencentweibo();
                 break;
             case R.id.btn_phone_register:
+                action();
                 break;
         }
+    }
+
+    private void action() {
+        new AlertDialog.Builder(this)
+                .setIcon(R.mipmap.ic_launcher_round)
+                .setTitle("友情提示")
+                .setMessage("功能暂未实现")
+                .setNegativeButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
     }
 
 

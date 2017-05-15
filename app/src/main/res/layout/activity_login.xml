@@ -17,14 +17,14 @@
         app:riv_border_color="#f2f1f1"
         app:riv_border_width="2dp"
         app:riv_oval="true" />
+
     <LinearLayout
-        android:layout_below="@id/riv_view"
         android:id="@+id/linear1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/riv_view"
         android:gravity="center"
         android:orientation="vertical">
-
 
 
         <android.support.design.widget.TextInputLayout
@@ -58,23 +58,23 @@
         android:orientation="horizontal">
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/btn_phone_register"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="left"
+            android:onClick="onClick"
             android:text="手机注册" />
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/btn_forget"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="right"
+            android:onClick="onClick"
             android:text="@string/forget_pwd" />
 
     </LinearLayout>
@@ -94,31 +94,34 @@
             android:onClick="onClick"
             android:text="@string/login" />
     </LinearLayout>
+
     <LinearLayout
-        android:layout_below="@id/linear3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear3">
+
         <ImageButton
-            android:onClick="onClick"
             android:id="@+id/Ib_weibo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="43dp"
+            android:onClick="onClick"
             android:src="@drawable/ssdk_oks_classic_sinaweibo" />
 
         <ImageButton
-            android:onClick="onClick"
             android:id="@+id/Ib_QQ"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="43dp"
-            android:src="@drawable/ssdk_oks_classic_qq" />
-        <ImageButton
             android:onClick="onClick"
+            android:src="@drawable/ssdk_oks_classic_qq" />
+
+        <ImageButton
             android:id="@+id/Ib_tencentweibo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="43dp"
+            android:onClick="onClick"
             android:src="@drawable/ssdk_oks_classic_tencentweibo" />
     </LinearLayout>
 </RelativeLayout>
