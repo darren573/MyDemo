@@ -58,6 +58,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:onClick="onClick"
             android:id="@+id/btn_phone_register"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"
@@ -67,6 +68,7 @@
             android:text="手机注册" />
 
         <Button
+            android:onClick="onClick"
             android:id="@+id/btn_forget"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="wrap_content"

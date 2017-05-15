@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:text="登录"
-            android:drawablePadding="8dp"
+            android:drawablePadding="10dp"
             android:background="@null"
             android:gravity="left"
             android:textColor="#09c816"
             android:textSize="20sp" />
 
         <TextView
-            android:drawablePadding="8dp"
+            android:drawablePadding="10dp"
             android:id="@+id/tv_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:drawablePadding="8dp"
+            android:drawablePadding="10dp"
             android:id="@+id/tv_collection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -57,7 +57,7 @@
             android:textSize="20sp" />
 
         <TextView
-            android:drawablePadding="8dp"
+            android:drawablePadding="10dp"
             android:id="@+id/tv_share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -26,6 +26,7 @@ import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.tencent.weibo.TencentWeibo;
 
+
 public class LoginActivity extends AppCompatActivity implements PlatformActionListener {
     private Intent intent;
     private EditText et_name, et_pwd;
@@ -66,6 +67,7 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
                 break;
         }
     }
+
 
     private void loginByTencentweibo() {
         Platform tencentWeibo = ShareSDK.getPlatform(this, TencentWeibo.NAME);
@@ -127,7 +129,7 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
                     intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "登录失败"+e, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -137,7 +139,7 @@ public class LoginActivity extends AppCompatActivity implements PlatformActionLi
     public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
         Looper.prepare();
         String result = platform.getDb().exportData();
-        Log.i("result",result);
+        Log.i("result", result);
         Toast.makeText(this, result, Toast.LENGTH_SHORT).show();
         Looper.loop();
     }
