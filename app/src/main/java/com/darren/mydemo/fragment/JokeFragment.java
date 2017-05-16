@@ -1,6 +1,8 @@
 package com.darren.mydemo.fragment;
 
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,6 +19,7 @@ import com.darren.mydemo.bean.ResultJoke;
 import com.darren.mydemo.common.Common;
 import com.darren.mydemo.common.Constant;
 import com.darren.mydemo.common.ServerConfig;
+import com.darren.mydemo.utils.SharedUtil;
 import com.darren.mydemo.utils.TimeUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
@@ -56,8 +59,24 @@ public class JokeFragment extends Fragment {
         prf_listView.setMode(PullToRefreshBase.Mode.BOTH);
         prf_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 Toast.makeText(getActivity(), data.get(position-1).getContent(),Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builer = new AlertDialog.Builder(getActivity())
+                        .setIcon(R.drawable.ic_shares)
+                        .setTitle("分享")
+                        .setMessage(data.get(position-1).getContent())
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SharedUtil.showShare(getActivity(),
+                                        "笑话",
+                                        "",
+                                        data.get(position-1).getContent(),
+                                        "http://image.baidu.com/search/detail?ct=503316480&z=0&ipn=d&word=%E7%88%86%E7%AC%91%E5%9B%BE%E7%89%87&step_word=&hs=2&pn=5&spn=0&di=18767771440&pi=0&rn=1&tn=baiduimagedetail&is=0%2C0&istype=0&ie=utf-8&oe=utf-8&in=&cl=2&lm=-1&st=-1&cs=801328703%2C413325531&os=667654980%2C1592508706&simid=3403602997%2C499126129&adpicid=0&lpn=0&ln=1963&fr=&fmq=1494896611930_R&fm=rs1&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&ist=&jit=&cg=&bdtype=0&oriquery=%E6%90%9E%E7%AC%91%E5%9B%BE%E7%89%87&objurl=http%3A%2F%2Fhimg2.huanqiu.com%2Fattachment2010%2F2015%2F0629%2F14%2F07%2F20150629020717282.jpg&fromurl=ippr_z2C%24qAzdH3FAzdH3Fri5p5_z%26e3Bi7wgqt7_z%26e3Bv54AzdH3Fu7ggyrtvp76jAzdH3Fda8c-a0AzdH3Fd0b98am_dd_z%26e3Bip4s&gsm=0&rpstart=0&rpnum=0",
+                                        "http://www.jianshu.com/p/7c14d7d0c6b2");
+                            }
+                        });
+                builer.create().show();
             }
         });
         prf_listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {

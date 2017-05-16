@@ -9,4 +9,6 @@ public class Constant {
     public static final String NUM="10";
     public static final String pagesize="1";
     public static final String showapi_appid="37528";
+
+    public static final int LOGIN_TYPE_THIRD = 0X002;
 }

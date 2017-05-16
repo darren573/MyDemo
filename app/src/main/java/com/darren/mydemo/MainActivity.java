@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         fm = getFragmentManager();
         fragmentTransaction = fm.beginTransaction();
         newsFragment = new NewsFragment();
+        tv_app_title.setText(R.string.news);
         fragmentTransaction.add(R.id.content, newsFragment);
         fragmentTransaction.commit();
     }
