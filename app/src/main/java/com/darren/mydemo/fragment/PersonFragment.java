@@ -1,7 +1,7 @@
 package com.darren.mydemo.fragment;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.Notification;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -21,7 +21,7 @@ import com.darren.mydemo.activity.RegisterActivity;
 import com.darren.mydemo.utils.SharedUtil;
 
 /**
- * Created by lenovo on 2017/5/16.
+ * Created by lenovo on 2017/5/2.
  */
 
 public class PersonFragment extends Fragment implements View.OnClickListener {
@@ -98,11 +98,11 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     }
 
     private void aboutUs() {
-        AlertDialog.Builder builer = new AlertDialog.Builder(getActivity())
-                .setTitle("关于我们")
-                .setMessage("开发人:darren573\n地址:https://github.com/darren573/MyDemo")
-                .setPositiveButton("确定",null);
-        builer.create().show();
+        Uri uri = Uri.parse("http://www.jianshu.com/u/950461f07346");   //指定网址
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);           //指定Action
+        intent.setData(uri);                            //设置Uri
+        PersonFragment.this.startActivity(intent);        //启动Activity
     }
 
     private void share() {
