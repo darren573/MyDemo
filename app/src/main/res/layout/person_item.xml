@@ -10,7 +10,6 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/touxiang"
         app:riv_border_color="#333333"
         app:riv_border_width="2dp"
         app:riv_mutate_background="true"
@@ -29,41 +28,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:text="登录"
-            android:drawablePadding="10dp"
             android:background="@null"
+            android:drawablePadding="10dp"
             android:gravity="left"
-            android:textColor="#09c816"
+            android:text="登录"
             android:textSize="20sp" />
 
         <TextView
-            android:drawablePadding="10dp"
-            android:id="@+id/tv_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="注册"
-            android:textColor="#09c816"
-            android:textSize="20sp" />
-
-        <TextView
-            android:drawablePadding="10dp"
             android:id="@+id/tv_collection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:drawablePadding="10dp"
             android:text="收藏"
-            android:textColor="#d81e06"
             android:textSize="20sp" />
 
         <TextView
-            android:drawablePadding="10dp"
             android:id="@+id/tv_share"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
+            android:drawablePadding="10dp"
             android:text="分享"
-            android:textColor="#1afa29"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_system"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@null"
+            android:drawablePadding="10dp"
+            android:gravity="left"
+            android:text="系统设置"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -75,11 +72,11 @@
         android:orientation="vertical">
 
         <Button
-            android:onClick="onClick"
             android:id="@+id/btn_aboutUs"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="onClick"
             android:text="关于我们..."
             android:textSize="20sp" />
     </LinearLayout>

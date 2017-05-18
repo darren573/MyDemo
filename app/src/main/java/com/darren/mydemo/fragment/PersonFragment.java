@@ -1,13 +1,12 @@
 package com.darren.mydemo.fragment;
 
 import android.app.Fragment;
-import android.app.Notification;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,16 +16,21 @@ import android.widget.TextView;
 
 import com.darren.mydemo.R;
 import com.darren.mydemo.activity.LoginActivity;
-import com.darren.mydemo.activity.RegisterActivity;
+import com.darren.mydemo.activity.SettingsActivity;
+import com.darren.mydemo.common.Constant;
+import com.darren.mydemo.manager.PreferencesManager;
+import com.darren.mydemo.utils.ImageLoader;
 import com.darren.mydemo.utils.SharedUtil;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 /**
  * Created by lenovo on 2017/5/2.
  */
 
 public class PersonFragment extends Fragment implements View.OnClickListener {
-    private TextView tv_login, tv_register, tv_collection, tv_share;
+    private TextView tv_login, tv_collection, tv_share, tv_system;
     private Button btn_aboutUs;
+    private RoundedImageView riv_item;
     private Intent intent;
     private View rootView;
 
@@ -40,19 +44,29 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         rootView = inflater.inflate(R.layout.person_item, container, false);
         findViews();
         initView();
+        initData();
         return rootView;
+    }
+
+    private void initData() {
+        if (PreferencesManager.getInstance(getActivity()).get(Constant.IS_LOGIN, false)) {
+            riv_item.setVisibility(View.VISIBLE);
+            loadUserInfo();
+        } else {
+            riv_item.setVisibility(View.GONE);
+        }
+    }
+
+    private void loadUserInfo() {
+        String userPhoto = PreferencesManager.getInstance(getActivity()).get(Constant.USER_PHOTO);
+        ImageLoader.getInstance().displayImageTarget(riv_item, userPhoto);
     }
 
     private void initView() {
         tv_login.setOnClickListener(this);
-        Drawable drawable_login = ContextCompat.getDrawable(getActivity(), R.drawable.ic_login);
+        Drawable drawable_login = ContextCompat.getDrawable(getActivity(), R.drawable.ic_logins);
         drawable_login.setBounds(0, 0, drawable_login.getMinimumWidth(), drawable_login.getMinimumHeight());
         tv_login.setCompoundDrawables(drawable_login, null, null, null);
-
-        tv_register.setOnClickListener(this);
-        Drawable drawable_register = ContextCompat.getDrawable(getActivity(), R.drawable.ic_register);
-        drawable_register.setBounds(0, 0, drawable_register.getMinimumWidth(), drawable_register.getMinimumHeight());
-        tv_register.setCompoundDrawables(drawable_register, null, null, null);
 
         tv_collection.setOnClickListener(this);
         Drawable drawable_collection = ContextCompat.getDrawable(getActivity(), R.drawable.ic_collections);
@@ -60,18 +74,24 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         tv_collection.setCompoundDrawables(drawable_collection, null, null, null);
 
         tv_share.setOnClickListener(this);
-        Drawable drawable_share = ContextCompat.getDrawable(getActivity(), R.drawable.ic_shares);
+        Drawable drawable_share = ContextCompat.getDrawable(getActivity(), R.drawable.ic_share);
         drawable_share.setBounds(0, 0, drawable_share.getMinimumWidth(), drawable_share.getMinimumHeight());
         tv_share.setCompoundDrawables(drawable_share, null, null, null);
+
+        tv_system.setOnClickListener(this);
+        Drawable drawable_system = ContextCompat.getDrawable(getActivity(), R.drawable.ic_system);
+        drawable_system.setBounds(0, 0, drawable_system.getMinimumWidth(), drawable_system.getMinimumHeight());
+        tv_system.setCompoundDrawables(drawable_system, null, null, null);
 
         btn_aboutUs.setOnClickListener(this);
     }
 
     private void findViews() {
         tv_login = (TextView) rootView.findViewById(R.id.tv_login);
-        tv_register = (TextView) rootView.findViewById(R.id.tv_register);
         tv_collection = (TextView) rootView.findViewById(R.id.tv_collection);
         tv_share = (TextView) rootView.findViewById(R.id.tv_share);
+        tv_system = (TextView) rootView.findViewById(R.id.tv_system);
+        riv_item= (RoundedImageView) rootView.findViewById(R.id.riv_item);
         btn_aboutUs = (Button) rootView.findViewById(R.id.btn_aboutUs);
     }
 
@@ -82,14 +102,14 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
                 intent = new Intent(v.getContext(), LoginActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.tv_register:
-                intent = new Intent(v.getContext(), RegisterActivity.class);
-                startActivity(intent);
-                break;
             case R.id.tv_collection:
                 break;
             case R.id.tv_share:
                 share();
+                break;
+            case R.id.tv_system:
+                intent = new Intent(v.getContext(), SettingsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.btn_aboutUs:
                 aboutUs();
@@ -98,11 +118,11 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     }
 
     private void aboutUs() {
-        Uri uri = Uri.parse("http://www.jianshu.com/u/950461f07346");   //指定网址
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);           //指定Action
-        intent.setData(uri);                            //设置Uri
-        PersonFragment.this.startActivity(intent);        //启动Activity
+        AlertDialog.Builder builer = new AlertDialog.Builder(getActivity())
+                .setTitle("关于我们")
+                .setMessage("开发人:darren573\n地址:https://github.com/darren573/MyDemo")
+                .setPositiveButton("确定", null);
+        builer.create().show();
     }
 
     private void share() {

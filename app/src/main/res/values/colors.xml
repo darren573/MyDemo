@@ -4,4 +4,7 @@
     <color name="colorPrimary">#ADD468</color>
     <color name="colorPrimaryDark">#8CC152</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="drivider_line">#b6b6b6</color>
+    <color name="grey">#dbdbdb</color>
 </resources>

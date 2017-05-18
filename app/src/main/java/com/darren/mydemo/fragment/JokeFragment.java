@@ -60,11 +60,11 @@ public class JokeFragment extends Fragment {
         prf_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                Toast.makeText(getActivity(), data.get(position-1).getContent(),Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builer = new AlertDialog.Builder(getActivity())
-                        .setIcon(R.drawable.ic_shares)
+                        .setIcon(R.drawable.ic_share)
                         .setTitle("分享")
                         .setMessage(data.get(position-1).getContent())
+                        .setNegativeButton("取消",null)
                         .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -76,6 +76,7 @@ public class JokeFragment extends Fragment {
                                         "http://www.jianshu.com/p/7c14d7d0c6b2");
                             }
                         });
+
                 builer.create().show();
             }
         });
