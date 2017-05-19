@@ -51,7 +51,6 @@ public class MoreInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more_info);
         findViews();
-        setTitle(getString(R.string.more_info));
     }
 
     private void findViews() {

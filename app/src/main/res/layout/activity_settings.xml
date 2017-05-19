@@ -12,6 +12,7 @@
         android:background="@drawable/drivider_line" />
 
     <LinearLayout
+        android:onClick="onClick"
         android:id="@+id/layout_update"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -41,6 +42,7 @@
 
 
     <Button
+        android:onClick="onClick"
         android:id="@+id/btn_loginout"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"

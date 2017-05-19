@@ -1,6 +1,7 @@
 package com.darren.mydemo.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -18,11 +19,6 @@ import cn.bmob.v3.BmobUser;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    @BindView(R.id.layout_update)
-    LinearLayout layoutUpdate;
-    @BindView(R.id.btn_loginout)
-    Button btnLoginout;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,15 +26,23 @@ public class SettingsActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.btn_loginout)
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.layout_update:
+                action();
                 break;
             case R.id.btn_loginout:
                 loginout();
                 break;
         }
+    }
+
+    private void action() {
+        AlertDialog.Builder builer = new AlertDialog.Builder(this)
+                .setTitle("友情提示")
+                .setMessage("当前版本为最高版本\n从此以后再无更新 23333")
+                .setPositiveButton("确定", null);
+        builer.create().show();
     }
 
     private void loginout() {

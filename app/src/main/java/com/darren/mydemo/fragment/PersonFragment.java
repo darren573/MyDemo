@@ -111,7 +111,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.tv_collection:
                 LoginUtils.checkLogin(true);
-                intent =new Intent(v.getContext(),CollectionActivity.class);
+                //intent =new Intent(v.getContext(),CollectionActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_share:
