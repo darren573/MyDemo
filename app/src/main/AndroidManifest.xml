@@ -81,7 +81,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.SettingsActivity" />
-        <activity android:name=".activity.MoreInfoActivity"></activity>
+        <activity android:name=".activity.MoreInfoActivity" />
     </application>
 
 </manifest>

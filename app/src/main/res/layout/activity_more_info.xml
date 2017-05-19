@@ -21,7 +21,19 @@
             android:layout_height="50dp"
             android:background="@drawable/bg_layout_w2g"
             android:gravity="center_vertical|left"
+            android:onClick="onViewClicked"
             android:orientation="horizontal">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/cimg_photo"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:src="@mipmap/ic_launcher_round"
+                app:riv_oval="true" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,6 +56,7 @@
             android:layout_height="50dp"
             android:background="@drawable/bg_layout_w2g"
             android:gravity="center_vertical"
+            android:onClick="onViewClicked"
             android:orientation="horizontal">
 
             <TextView
@@ -81,6 +94,7 @@
             android:layout_height="50dp"
             android:background="@drawable/bg_layout_w2g"
             android:gravity="center_vertical"
+            android:onClick="onViewClicked"
             android:orientation="horizontal">
 
             <TextView
@@ -118,6 +132,7 @@
             android:layout_height="50dp"
             android:background="@drawable/bg_layout_w2g"
             android:gravity="center_vertical"
+            android:onClick="onViewClicked"
             android:orientation="horizontal">
 
             <TextView
@@ -153,6 +168,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/activity_horizontal_margin"
+            android:onClick="onViewClicked"
             android:text="提交" />
     </LinearLayout>
 

@@ -16,10 +16,12 @@ import android.widget.TextView;
 
 import com.darren.mydemo.R;
 import com.darren.mydemo.activity.LoginActivity;
+import com.darren.mydemo.activity.MoreInfoActivity;
 import com.darren.mydemo.activity.SettingsActivity;
 import com.darren.mydemo.common.Constant;
 import com.darren.mydemo.manager.PreferencesManager;
 import com.darren.mydemo.utils.ImageLoader;
+import com.darren.mydemo.utils.LoginUtils;
 import com.darren.mydemo.utils.SharedUtil;
 import com.makeramen.roundedimageview.RoundedImageView;
 
@@ -84,6 +86,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
         tv_system.setCompoundDrawables(drawable_system, null, null, null);
 
         btn_aboutUs.setOnClickListener(this);
+        riv_item.setOnClickListener(this);
     }
 
     private void findViews() {
@@ -98,11 +101,18 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.riv_item:
+                intent=new Intent(v.getContext(), MoreInfoActivity.class);
+                startActivity(intent);
+                break;
             case R.id.tv_login:
                 intent = new Intent(v.getContext(), LoginActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_collection:
+                LoginUtils.checkLogin(true);
+                intent =new Intent(v.getContext(),CollectionActivity.class);
+                startActivity(intent);
                 break;
             case R.id.tv_share:
                 share();

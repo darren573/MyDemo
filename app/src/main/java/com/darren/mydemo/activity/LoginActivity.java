@@ -39,8 +39,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        //初始化
-        Bmob.initialize(this, "8c8d7caa55be568ba20e6b9baa5865f8");
         findViews();
     }
 
