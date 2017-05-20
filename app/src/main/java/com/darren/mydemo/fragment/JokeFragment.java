@@ -15,12 +15,17 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.darren.mydemo.R;
 import com.darren.mydemo.adapter.JokeAdapter;
+import com.darren.mydemo.bean.Account;
+import com.darren.mydemo.bean.Collection;
 import com.darren.mydemo.bean.ResultJoke;
+import com.darren.mydemo.common.BaseApplication;
 import com.darren.mydemo.common.Common;
 import com.darren.mydemo.common.Constant;
 import com.darren.mydemo.common.ServerConfig;
+import com.darren.mydemo.utils.LoginUtils;
 import com.darren.mydemo.utils.SharedUtil;
 import com.darren.mydemo.utils.TimeUtils;
+import com.darren.mydemo.utils.ToastUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -29,6 +34,8 @@ import com.zhy.http.okhttp.callback.StringCallback;
 import java.util.ArrayList;
 import java.util.List;
 
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.SaveListener;
 import okhttp3.Call;
 
 /**
@@ -57,6 +64,32 @@ public class JokeFragment extends Fragment {
         jokeAdapter = new JokeAdapter(data);
         prf_listView.setAdapter(jokeAdapter);
         prf_listView.setMode(PullToRefreshBase.Mode.BOTH);
+        prf_listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                AlertDialog.Builder builer = new AlertDialog.Builder(getActivity())
+                        .setIcon(R.drawable.ic_collections)
+                        .setTitle("收藏")
+                        .setMessage(data.get(position-1).getContent())
+                        .setNegativeButton("取消",null)
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                LoginUtils.checkLogin(true);
+                                Account account = BmobUser.getCurrentUser(BaseApplication.getInstance(),Account.class);
+                                if(account != null){
+                                    Collection collection = new Collection();
+                                    collection.setuId(account.getObjectId());
+                                    collection.setType(Constant.COLLECTION_TYPE_JOKE);
+                                    collection.setTitle(data.get(position-1).getContent());
+                                    saveCollectionData(collection);
+                                }
+                            }
+                        });
+                builer.create().show();
+                return false;
+            }
+        });
         prf_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -92,7 +125,19 @@ public class JokeFragment extends Fragment {
             }
         });
     }
+    private void saveCollectionData(Collection collection) {
+        collection.save(getActivity(), new SaveListener() {
+            @Override
+            public void onSuccess() {
+                ToastUtils.shortToast(getActivity(),"收藏成功!");
+            }
 
+            @Override
+            public void onFailure(int i, String s) {
+                ToastUtils.shortToast(getActivity(),"收藏失败!");
+            }
+        });
+    }
     @Override
     public void onResume() {
         super.onResume();

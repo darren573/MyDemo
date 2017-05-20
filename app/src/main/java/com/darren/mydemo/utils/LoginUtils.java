@@ -40,7 +40,7 @@ public class LoginUtils {
 
     private static void jump2Login(){
 //        BaseApplication.getInstance().startActivity(new Intent(BaseApplication.getInstance(), LoginActivity.class));
-        BaseApplication.getInstance().startActivity(new Intent("com.jay.six.ui.activity.LoginActivity").setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        BaseApplication.getInstance().startActivity(new Intent("com.darren.mydemo.activity.LoginActivity").setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
     public static void autoLogin(){

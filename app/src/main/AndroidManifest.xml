@@ -82,6 +82,7 @@
         </activity>
         <activity android:name=".activity.SettingsActivity" />
         <activity android:name=".activity.MoreInfoActivity" />
+        <activity android:name=".activity.CollectionActivity"></activity>
     </application>
 
 </manifest>

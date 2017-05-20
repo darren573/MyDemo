@@ -33,4 +33,6 @@
     <string name="upload_photo_success">上传成功</string>
     <string name="select_pic_failed">选择图片失败</string>
     <string name="collection">收藏</string>
+    <string name="load_failed">加载失败，点我再试试？</string>
+    <string name="loading">努力加载中</string>
 </resources>

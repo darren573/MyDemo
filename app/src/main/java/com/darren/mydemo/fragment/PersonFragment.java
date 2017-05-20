@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.darren.mydemo.R;
+import com.darren.mydemo.activity.CollectionActivity;
 import com.darren.mydemo.activity.LoginActivity;
 import com.darren.mydemo.activity.MoreInfoActivity;
 import com.darren.mydemo.activity.SettingsActivity;
@@ -111,7 +112,7 @@ public class PersonFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.tv_collection:
                 LoginUtils.checkLogin(true);
-                //intent =new Intent(v.getContext(),CollectionActivity.class);
+                intent =new Intent(v.getContext(),CollectionActivity.class);
                 startActivity(intent);
                 break;
             case R.id.tv_share:

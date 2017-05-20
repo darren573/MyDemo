@@ -23,4 +23,8 @@ public class Constant {
     public static final String USER_PWD = "user_pwd";
     /** 用户登录方式 **/
     public static final String LOGINTYPE = "login_type";
+
+    public static final int COLLECTION_TYPE_NEWS = 0X001;
+    public static final int COLLECTION_TYPE_JOKE = 0X002;
+    public static final int COLLECTION_TYPE_PIC = 0X003;
 }
